@@ -1,11 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://d26iwbbqo3lye"]
+[gd_scene load_steps=22 format=3 uid="uid://bv50sncfcp13l"]
 
-[ext_resource type="Script" path="res://Player/Player.gd" id="1_1chfj"]
-[ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_2f87u"]
-[ext_resource type="Texture2D" uid="uid://yqkehiuj4t5x" path="res://Assets/player.png" id="1_qx8we"]
+[ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_hbmea"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="2_1dd7e"]
+[ext_resource type="Texture2D" uid="uid://yqkehiuj4t5x" path="res://Assets/player.png" id="3_ocxf4"]
+[ext_resource type="Script" path="res://Camera.gd" id="4_mo4is"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
-texture = ExtResource("1_2f87u")
+texture = ExtResource("1_hbmea")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -255,43 +256,43 @@ sources/0 = SubResource("TileSetAtlasSource_5q8nw")
 size = Vector2(1152, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8ryl"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(288, 70, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iyg4d"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(0, 0, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nni2"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(224, 70, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxc0t"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(256, 70, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5l585"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(32, 0, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tqov0"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(64, 0, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4yny8"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(96, 0, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mulh5"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(128, 0, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_22vu7"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(160, 0, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lp5j"]
-atlas = ExtResource("1_qx8we")
+atlas = ExtResource("3_ocxf4")
 region = Rect2(192, 0, 32, 70)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3as5q"]
@@ -351,7 +352,7 @@ animations = [{
 size = Vector2(14, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ltkrr"]
-texture = ExtResource("1_2f87u")
+texture = ExtResource("1_hbmea")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1145,7 +1146,7 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_8tl7i")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_1chfj")
+script = ExtResource("2_1dd7e")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_3as5q")
@@ -1163,3 +1164,8 @@ layer_0/tile_data = PackedInt32Array(196609, 917504, 5, 196610, 917504, 5, 19661
 
 [node name="Foreground" type="TileMap" parent="."]
 format = 2
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("4_mo4is")
+
+[node name="Exit_to_2" type="Area2D" parent="."]
