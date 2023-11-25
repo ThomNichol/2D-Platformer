@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bv50sncfcp13l"]
+[gd_scene load_steps=23 format=3 uid="uid://bv50sncfcp13l"]
 
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_hbmea"]
 [ext_resource type="Script" path="res://Player/Player.gd" id="2_1dd7e"]
 [ext_resource type="Texture2D" uid="uid://yqkehiuj4t5x" path="res://Assets/player.png" id="3_ocxf4"]
 [ext_resource type="Script" path="res://Camera.gd" id="4_mo4is"]
+[ext_resource type="FontFile" uid="uid://b3g4ewqhw5wbs" path="res://Assets/Hyperspace Bold.otf" id="5_exsmx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
 texture = ExtResource("1_hbmea")
@@ -1169,3 +1170,46 @@ format = 2
 script = ExtResource("4_mo4is")
 
 [node name="Exit_to_2" type="Area2D" parent="."]
+
+[node name="Coins" type="TileMap" parent="."]
+format = 2
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Score" type="Label" parent="HUD"]
+layout_mode = 0
+offset_top = -79.0
+offset_right = 48.0
+offset_bottom = -53.0
+theme_override_fonts/font = ExtResource("5_exsmx")
+text = "Score: "
+
+[node name="Time" type="Label" parent="HUD"]
+layout_mode = 0
+offset_left = 992.0
+offset_top = -66.0
+offset_right = 1050.0
+offset_bottom = -42.0
+theme_override_fonts/font = ExtResource("5_exsmx")
+text = "Time: "
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1040.0
+offset_top = -74.0
+offset_right = 1080.0
+offset_bottom = -34.0
+
+[node name="Options" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 93.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("5_exsmx")
+horizontal_alignment = 3
+vertical_alignment = 3
