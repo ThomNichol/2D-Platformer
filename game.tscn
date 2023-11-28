@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://d26iwbbqo3lye"]
+[gd_scene load_steps=22 format=3 uid="uid://d26iwbbqo3lye"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_1chfj"]
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_2f87u"]
 [ext_resource type="Texture2D" uid="uid://yqkehiuj4t5x" path="res://Assets/player.png" id="1_qx8we"]
+[ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="4_f8whs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
 texture = ExtResource("1_2f87u")
@@ -623,11 +624,11 @@ texture_region_size = Vector2i(64, 64)
 1:4/0 = 0
 1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:4/0/physics_layer_0/angular_velocity = 0.0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, -32, -32, -32)
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, -32, 32, 32)
 2:4/0 = 0
 2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:4/0/physics_layer_0/angular_velocity = 0.0
-2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32)
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32)
 3:4/0 = 0
 3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:4/0/physics_layer_0/angular_velocity = 0.0
@@ -759,11 +760,11 @@ texture_region_size = Vector2i(64, 64)
 1:7/0 = 0
 1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:7/0/physics_layer_0/angular_velocity = 0.0
-1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, -32, -32, 32, -32)
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 32, 32, 32, 32, -32)
 2:7/0 = 0
 2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:7/0/physics_layer_0/angular_velocity = 0.0
-2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32)
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32)
 3:7/0 = 0
 3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:7/0/physics_layer_0/angular_velocity = 0.0
@@ -1156,6 +1157,8 @@ autoplay = "Jump"
 position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_ckckm")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="Platform" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_t01rf")
 format = 2
@@ -1163,3 +1166,5 @@ layer_0/tile_data = PackedInt32Array(196609, 917504, 5, 196610, 917504, 5, 19661
 
 [node name="Foreground" type="TileMap" parent="."]
 format = 2
+
+[node name="Door" parent="." instance=ExtResource("4_f8whs")]
