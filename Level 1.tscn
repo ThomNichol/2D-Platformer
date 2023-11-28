@@ -1,12 +1,12 @@
-[gd_scene load_steps=29 format=3 uid="uid://bv50sncfcp13l"]
+[gd_scene load_steps=17 format=3 uid="uid://bv50sncfcp13l"]
 
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_hbmea"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_1dd7e"]
 [ext_resource type="Texture2D" uid="uid://b6e4dfmkqg3k7" path="res://Assets/coin_36.png" id="2_x2ofi"]
-[ext_resource type="Texture2D" uid="uid://yqkehiuj4t5x" path="res://Assets/player.png" id="3_ocxf4"]
+[ext_resource type="PackedScene" uid="uid://dkroiytusp6gy" path="res://Player/player_container.tscn" id="3_opmhr"]
 [ext_resource type="Script" path="res://Camera.gd" id="4_mo4is"]
 [ext_resource type="FontFile" uid="uid://b3g4ewqhw5wbs" path="res://Assets/Hyperspace Bold.otf" id="5_exsmx"]
 [ext_resource type="Texture2D" uid="uid://dba837esbyo6j" path="res://Assets/coin_01.png" id="6_iyv1b"]
+[ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="8_0mmfq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
 texture = ExtResource("1_hbmea")
@@ -338,102 +338,6 @@ sources/1 = SubResource("TileSetAtlasSource_4pnf5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tl7i"]
 size = Vector2(1152, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y8ryl"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(288, 70, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iyg4d"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(0, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0nni2"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(224, 70, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jxc0t"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(256, 70, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5l585"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(32, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqov0"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(64, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4yny8"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(96, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mulh5"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(128, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_22vu7"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(160, 0, 32, 70)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8lp5j"]
-atlas = ExtResource("3_ocxf4")
-region = Rect2(192, 0, 32, 70)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3as5q"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y8ryl")
-}],
-"loop": false,
-"name": &"Fall",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iyg4d")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0nni2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jxc0t")
-}],
-"loop": false,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5l585")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tqov0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4yny8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mulh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_22vu7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8lp5j")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ckckm"]
-size = Vector2(14, 48)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ltkrr"]
 texture = ExtResource("1_hbmea")
@@ -1251,17 +1155,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_8tl7i")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_1dd7e")
+[node name="Player_Container" parent="." instance=ExtResource("3_opmhr")]
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Player"]
-sprite_frames = SubResource("SpriteFrames_3as5q")
-animation = &"Jump"
-autoplay = "Jump"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-1, 6)
-shape = SubResource("RectangleShape2D_ckckm")
+[node name="Spawn" type="Marker2D" parent="Player_Container"]
 
 [node name="Platform" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_t01rf")
@@ -1273,8 +1169,6 @@ format = 2
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_mo4is")
-
-[node name="Exit_to_2" type="Area2D" parent="."]
 
 [node name="Coins" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ttow0")
@@ -1319,3 +1213,5 @@ offset_bottom = 117.0
 theme_override_fonts/font = ExtResource("5_exsmx")
 horizontal_alignment = 3
 vertical_alignment = 3
+
+[node name="Door" parent="." instance=ExtResource("8_0mmfq")]
