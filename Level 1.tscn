@@ -1173,6 +1173,7 @@ script = ExtResource("4_mo4is")
 [node name="Coins" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ttow0")
 format = 2
+layer_0/tile_data = PackedInt32Array(262159, 1, 0, 1, 0, 0, 3, 0, 0, 65542, 0, 0)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -1190,10 +1191,10 @@ text = "Score: "
 
 [node name="Time" type="Label" parent="HUD"]
 layout_mode = 0
-offset_left = 992.0
-offset_top = -66.0
-offset_right = 1050.0
-offset_bottom = -42.0
+offset_left = 138.0
+offset_top = -78.0
+offset_right = 196.0
+offset_bottom = -54.0
 theme_override_fonts/font = ExtResource("5_exsmx")
 text = "Time: "
 
