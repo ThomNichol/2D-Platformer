@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://d26iwbbqo3lye"]
+[gd_scene load_steps=27 format=3 uid="uid://d26iwbbqo3lye"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_1chfj"]
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_2f87u"]
 [ext_resource type="Texture2D" uid="uid://yqkehiuj4t5x" path="res://Assets/player.png" id="1_qx8we"]
 [ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="4_f8whs"]
+[ext_resource type="Texture2D" uid="uid://dba837esbyo6j" path="res://Assets/coin_01.png" id="5_cl5id"]
+[ext_resource type="Script" path="res://Levels/Coins.gd" id="6_byyb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
 texture = ExtResource("1_2f87u")
@@ -350,6 +352,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckckm"]
 size = Vector2(14, 48)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmyc6"]
+height = 60.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ltkrr"]
 texture = ExtResource("1_2f87u")
@@ -1128,6 +1133,20 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ltkrr")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16m0p"]
+texture = ExtResource("5_cl5id")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_0r707"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+sources/0 = SubResource("TileSetAtlasSource_16m0p")
+
 [node name="Game" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
@@ -1159,6 +1178,14 @@ shape = SubResource("RectangleShape2D_ckckm")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
+[node name="Coin_Collector" type="Area2D" parent="Player"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Coin_Collector"]
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_kmyc6")
+
 [node name="Platform" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_t01rf")
 format = 2
@@ -1168,3 +1195,14 @@ layer_0/tile_data = PackedInt32Array(196609, 917504, 5, 196610, 917504, 5, 19661
 format = 2
 
 [node name="Door" parent="." instance=ExtResource("4_f8whs")]
+
+[node name="Coin_Container" type="Node2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="Coins" type="TileMap" parent="Coin_Container"]
+tile_set = SubResource("TileSet_0r707")
+format = 2
+layer_0/tile_data = PackedInt32Array(262144, 0, 0, 131080, 0, 0, 65549, 0, 0, 65541, 0, 0, 262162, 0, 0, 262166, 0, 0, 327705, 0, 0)
+script = ExtResource("6_byyb7")
+
+[connection signal="body_entered" from="Player/Coin_Collector" to="Player" method="_on_coin_collector_body_entered"]
