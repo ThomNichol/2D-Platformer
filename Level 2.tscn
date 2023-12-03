@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://yfnftyuundsm"]
+[gd_scene load_steps=16 format=3 uid="uid://yfnftyuundsm"]
 
 [ext_resource type="Texture2D" uid="uid://buctqvmeasr6" path="res://Assets/tilesheet_complete_2X.png" id="1_ryrdo"]
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="2_plunl"]
 [ext_resource type="PackedScene" uid="uid://dkroiytusp6gy" path="res://Player/player_container.tscn" id="3_b138u"]
 [ext_resource type="FontFile" uid="uid://b3g4ewqhw5wbs" path="res://Assets/Hyperspace Bold.otf" id="4_lbwmg"]
 [ext_resource type="Texture2D" uid="uid://d4g4pms1mfh37" path="res://Assets/coin_11.png" id="5_eiam8"]
+[ext_resource type="Texture2D" uid="uid://bnchhu6nw4egm" path="res://Assets/Door.png" id="6_21ggb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6ah5"]
 texture = ExtResource("1_ryrdo")
@@ -2245,3 +2246,14 @@ horizontal_alignment = 2
 tile_set = SubResource("TileSet_krfr2")
 format = 2
 layer_0/tile_data = PackedInt32Array(458777, 0, 0, 458795, 0, 0, 1048634, 0, 0)
+
+[node name="Door" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Door"]
+position = Vector2(1187, 287)
+texture = ExtResource("6_21ggb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Door/Sprite2D"]
+polygon = PackedVector2Array(23, -25, 7, -35, -19, -31, -33, -14, -32, 33, 32, 34, 31, -12)
+
+[connection signal="body_entered" from="Door" to="Player_Container" method="_on_door_body_entered"]

@@ -8,3 +8,7 @@ func _physics_process(_delta):
 		player.position = $Spawn.position
 		add_child(player)
 		
+
+
+func _on_door_body_entered(body):
+	pass # Replace with function body.
