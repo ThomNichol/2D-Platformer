@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="2_plunl"]
 [ext_resource type="PackedScene" uid="uid://dkroiytusp6gy" path="res://Player/player_container.tscn" id="3_b138u"]
 [ext_resource type="FontFile" uid="uid://b3g4ewqhw5wbs" path="res://Assets/Hyperspace Bold.otf" id="4_lbwmg"]
-[ext_resource type="Texture2D" uid="uid://dba837esbyo6j" path="res://Assets/coin_01.png" id="5_t0kjq"]
+[ext_resource type="Texture2D" uid="uid://d4g4pms1mfh37" path="res://Assets/coin_11.png" id="5_eiam8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6ah5"]
 texture = ExtResource("1_ryrdo")
@@ -2186,14 +2186,13 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_im5yq")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b7hl8"]
-texture = ExtResource("5_t0kjq")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_js5v7"]
+texture = ExtResource("5_eiam8")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_orape"]
-tile_size = Vector2i(128, 128)
-sources/0 = SubResource("TileSetAtlasSource_b7hl8")
+[sub_resource type="TileSet" id="TileSet_krfr2"]
+sources/0 = SubResource("TileSetAtlasSource_js5v7")
 
 [node name="Level 2" type="Node2D"]
 
@@ -2243,5 +2242,6 @@ text = "Time:"
 horizontal_alignment = 2
 
 [node name="Coins" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_orape")
+tile_set = SubResource("TileSet_krfr2")
 format = 2
+layer_0/tile_data = PackedInt32Array(458777, 0, 0, 458795, 0, 0, 1048634, 0, 0)

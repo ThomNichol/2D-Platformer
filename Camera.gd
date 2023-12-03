@@ -14,3 +14,7 @@ func _physics_process(_delta):
 	else:
 		zoom = Vector2(1,1)
 		position = Vector2(0,0)
+	
+func spawn():
+	var MusicLevel1 = get_node("MusicLevel1")
+	MusicLevel1.play()

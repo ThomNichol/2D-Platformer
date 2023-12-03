@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c8xdfnjbvysh"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseMenu" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 647.0
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 251.0
+offset_right = 601.0
+offset_bottom = 282.0
+text = "Restart?"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 350.0
+offset_right = 589.0
+offset_bottom = 381.0
+text = "Quit?"
