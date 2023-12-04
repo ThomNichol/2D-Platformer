@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bv50sncfcp13l"]
+[gd_scene load_steps=20 format=3 uid="uid://bv50sncfcp13l"]
 
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_hbmea"]
+[ext_resource type="Script" path="res://Level1.gd" id="1_tj1sx"]
 [ext_resource type="Texture2D" uid="uid://b6e4dfmkqg3k7" path="res://Assets/coin_36.png" id="2_x2ofi"]
 [ext_resource type="PackedScene" uid="uid://dkroiytusp6gy" path="res://Player/player_container.tscn" id="3_opmhr"]
 [ext_resource type="Script" path="res://Camera.gd" id="4_mo4is"]
-[ext_resource type="FontFile" uid="uid://b3g4ewqhw5wbs" path="res://Assets/Hyperspace Bold.otf" id="5_exsmx"]
-[ext_resource type="Script" path="res://Menu.gd" id="5_vyemu"]
 [ext_resource type="AudioStream" uid="uid://lyvuo0brnqwo" path="res://Assets/Medieval Craze.wav" id="7_dgjo2"]
 [ext_resource type="Texture2D" uid="uid://40qr8x1b26d4" path="res://Assets/coin_10.png" id="7_o8ohu"]
 [ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="8_0mmfq"]
@@ -1211,6 +1210,7 @@ sources/0 = SubResource("TileSetAtlasSource_wrcfg")
 sources/1 = SubResource("TileSetAtlasSource_v53wj")
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_tj1sx")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="Background" type="TileMap" parent="."]
@@ -1242,59 +1242,9 @@ format = 2
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_mo4is")
 
-[node name="Menu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1040.0
-offset_top = -74.0
-offset_right = 1080.0
-offset_bottom = -34.0
-script = ExtResource("5_vyemu")
-
-[node name="Options" type="Label" parent="Menu"]
-layout_mode = 0
-offset_left = -676.0
-offset_top = 16.0
-offset_right = -247.0
-offset_bottom = 205.0
-theme_override_fonts/font = ExtResource("5_exsmx")
-text = "Options Menu"
-horizontal_alignment = 1
-vertical_alignment = 3
-
-[node name="Unpause" type="Button" parent="Menu"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Quit" type="Button" parent="Menu"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="Quit2" type="Label" parent="Menu"]
-layout_mode = 0
-offset_left = -501.0
-offset_top = 111.0
-offset_right = -426.0
-offset_bottom = 144.0
-theme_override_fonts/font = ExtResource("5_exsmx")
-theme_override_font_sizes/font_size = 24
-text = "Quit?"
-
-[node name="Unpause3" type="Label" parent="Menu"]
-layout_mode = 0
-offset_left = -523.0
-offset_top = 69.0
-offset_right = -403.0
-offset_bottom = 102.0
-theme_override_fonts/font = ExtResource("5_exsmx")
-theme_override_font_sizes/font_size = 24
-text = "Unpause?"
-
 [node name="Door" parent="." instance=ExtResource("8_0mmfq")]
 
-[node name="MusicLevel1" type="AudioStreamPlayer" parent="."]
+[node name="MedievalCraze" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_dgjo2")
 
 [node name="Coins" type="TileMap" parent="."]
