@@ -1,10 +1,5 @@
 extends Control
 
 
-func _on_unpause_pressed():
-	Global.reset()
-	get_tree().change_scene_to_file("res://game.tscn")
-
-
-func _on_quit_pressed():
+func _on_Quit_pressed():
 	get_tree().quit()
