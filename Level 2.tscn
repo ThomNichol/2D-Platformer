@@ -2195,7 +2195,7 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_krfr2"]
 sources/0 = SubResource("TileSetAtlasSource_js5v7")
 
-[node name="Level 2" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_15qj7")

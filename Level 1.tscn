@@ -1,14 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://bv50sncfcp13l"]
+[gd_scene load_steps=21 format=3 uid="uid://bv50sncfcp13l"]
 
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_hbmea"]
 [ext_resource type="Texture2D" uid="uid://b6e4dfmkqg3k7" path="res://Assets/coin_36.png" id="2_x2ofi"]
 [ext_resource type="PackedScene" uid="uid://dkroiytusp6gy" path="res://Player/player_container.tscn" id="3_opmhr"]
 [ext_resource type="Script" path="res://Camera.gd" id="4_mo4is"]
 [ext_resource type="FontFile" uid="uid://b3g4ewqhw5wbs" path="res://Assets/Hyperspace Bold.otf" id="5_exsmx"]
+[ext_resource type="Script" path="res://Menu.gd" id="5_vyemu"]
 [ext_resource type="AudioStream" uid="uid://lyvuo0brnqwo" path="res://Assets/Medieval Craze.wav" id="7_dgjo2"]
 [ext_resource type="Texture2D" uid="uid://40qr8x1b26d4" path="res://Assets/coin_10.png" id="7_o8ohu"]
 [ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="8_0mmfq"]
 [ext_resource type="Texture2D" uid="uid://d4g4pms1mfh37" path="res://Assets/coin_11.png" id="8_i1qsb"]
+[ext_resource type="Script" path="res://Coins.gd" id="10_b8ktj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
 texture = ExtResource("1_hbmea")
@@ -1240,29 +1242,6 @@ format = 2
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("4_mo4is")
 
-[node name="HUD" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Score" type="Label" parent="HUD"]
-layout_mode = 0
-offset_top = -79.0
-offset_right = 48.0
-offset_bottom = -53.0
-theme_override_fonts/font = ExtResource("5_exsmx")
-text = "Score: "
-
-[node name="Time" type="Label" parent="HUD"]
-layout_mode = 0
-offset_left = 138.0
-offset_top = -78.0
-offset_right = 196.0
-offset_bottom = -54.0
-theme_override_fonts/font = ExtResource("5_exsmx")
-text = "Time: "
-
 [node name="Menu" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -1270,15 +1249,48 @@ offset_left = 1040.0
 offset_top = -74.0
 offset_right = 1080.0
 offset_bottom = -34.0
+script = ExtResource("5_vyemu")
 
 [node name="Options" type="Label" parent="Menu"]
 layout_mode = 0
-offset_left = -58.0
-offset_top = 93.0
-offset_bottom = 117.0
+offset_left = -676.0
+offset_top = 16.0
+offset_right = -247.0
+offset_bottom = 205.0
 theme_override_fonts/font = ExtResource("5_exsmx")
-horizontal_alignment = 3
+text = "Options Menu"
+horizontal_alignment = 1
 vertical_alignment = 3
+
+[node name="Unpause" type="Button" parent="Menu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Quit" type="Button" parent="Menu"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Quit2" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = -501.0
+offset_top = 111.0
+offset_right = -426.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("5_exsmx")
+theme_override_font_sizes/font_size = 24
+text = "Quit?"
+
+[node name="Unpause3" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = -523.0
+offset_top = 69.0
+offset_right = -403.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("5_exsmx")
+theme_override_font_sizes/font_size = 24
+text = "Unpause?"
 
 [node name="Door" parent="." instance=ExtResource("8_0mmfq")]
 
@@ -1286,6 +1298,8 @@ vertical_alignment = 3
 stream = ExtResource("7_dgjo2")
 
 [node name="Coins" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource("TileSet_ijirk")
 format = 2
 layer_0/tile_data = PackedInt32Array(2, 1, 0, 65543, 1, 0, 0, 1, 0)
+script = ExtResource("10_b8ktj")
