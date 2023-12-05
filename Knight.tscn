@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b1idj4gkdvkdh"]
+[gd_scene load_steps=58 format=3 uid="uid://b1idj4gkdvkdh"]
 
 [ext_resource type="Texture2D" uid="uid://bvjr7olmoidxj" path="res://Assets/noBKG_KnightAttack_strip.png" id="1_i87s3"]
 [ext_resource type="Script" path="res://Knight.gd" id="1_ue8lw"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Move.gd" id="6_4dxeq"]
 [ext_resource type="Script" path="res://Attack.gd" id="7_kw7vr"]
 [ext_resource type="Script" path="res://Die.gd" id="8_ehdw2"]
+[ext_resource type="AudioStream" uid="uid://bxpo1klarfyeg" path="res://Assets/KnightAttack.wav" id="9_m5q2p"]
+[ext_resource type="AudioStream" uid="uid://dyg5d2a68pks8" path="res://Assets/KnightDeath.wav" id="10_4g6gd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2o1qj"]
 atlas = ExtResource("1_i87s3")
@@ -377,3 +379,10 @@ script = ExtResource("8_ehdw2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
 position = Vector2(94, -1)
 shape = SubResource("RectangleShape2D_3ii3q")
+
+[node name="KnightAttackVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m5q2p")
+volume_db = 13.0
+
+[node name="KnightDeathVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4g6gd")

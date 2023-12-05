@@ -1246,6 +1246,7 @@ script = ExtResource("4_mo4is")
 
 [node name="MedievalCraze" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_dgjo2")
+volume_db = 20.429
 
 [node name="Coins" type="TileMap" parent="."]
 visible = false

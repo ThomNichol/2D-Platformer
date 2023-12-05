@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://b4kfw2wi8dnce"]
+[gd_scene load_steps=51 format=3 uid="uid://b4kfw2wi8dnce"]
 
 [ext_resource type="Texture2D" uid="uid://t44cuvgisg6s" path="res://Assets/NightBorne.png" id="1_nomh0"]
 [ext_resource type="Script" path="res://NightBorne.gd" id="1_u3vx2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://NightBorneMove.gd" id="3_om472"]
 [ext_resource type="Script" path="res://NightBorneAttack.gd" id="4_fy3nr"]
 [ext_resource type="Script" path="res://NightBorneDies.gd" id="5_qgmoj"]
+[ext_resource type="AudioStream" uid="uid://iou2qnf7r15l" path="res://Assets/NightBorneAttackVoice.wav" id="7_lm274"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mq8w1"]
 atlas = ExtResource("1_nomh0")
@@ -345,3 +346,10 @@ script = ExtResource("5_qgmoj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
 position = Vector2(1, 6.5)
 shape = SubResource("RectangleShape2D_qnsno")
+
+[node name="NightBorneAttackVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lm274")
+volume_db = 13.0
+
+[node name="NightBorneDeathVoice" type="AudioStreamPlayer" parent="."]
+volume_db = 13.0

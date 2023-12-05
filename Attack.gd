@@ -20,3 +20,7 @@ func _on_Timer_timeout():
 		var target = enemy.attack_target()
 		if target != null and target.name == "Player":
 			target.die()
+
+func attack(_Knight):
+	var Knight_Attack_Voice = get_node("/root/Knight/KnightAttackVoice")
+	Knight_Attack_Voice.play()
