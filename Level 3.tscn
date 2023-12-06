@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnkbvk64eghto"]
+[gd_scene load_steps=10 format=3 uid="uid://bnkbvk64eghto"]
 
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_1wmgk"]
+[ext_resource type="PackedScene" uid="uid://b4kfw2wi8dnce" path="res://NightBorne.tscn" id="2_fhb2j"]
+[ext_resource type="Script" path="res://Player/Player_Container.gd" id="3_h3gh8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ea7me"]
 texture = ExtResource("1_1wmgk")
@@ -1240,3 +1242,13 @@ layer_0/tile_data = PackedInt32Array(2424841, 327680, 6, 2424842, 327680, 6, 242
 [node name="Foreground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7btx4")
 format = 2
+
+[node name="NightBorne" parent="." instance=ExtResource("2_fhb2j")]
+position = Vector2(1239, 510)
+scale = Vector2(3, 3)
+
+[node name="Player_Container" type="Node2D" parent="."]
+script = ExtResource("3_h3gh8")
+
+[node name="Spawn" type="Marker2D" parent="Player_Container"]
+position = Vector2(190, 466)

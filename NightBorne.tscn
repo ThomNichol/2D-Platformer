@@ -313,8 +313,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnsno"]
-size = Vector2(24, 33)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v2ko"]
+size = Vector2(22, 32)
 
 [node name="NightBorne" type="CharacterBody2D"]
 script = ExtResource("1_u3vx2")
@@ -324,8 +324,11 @@ sprite_frames = SubResource("SpriteFrames_c34d0")
 animation = &"NightBorneDeath"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_7v2ko")
 
-[node name="AttackCast" type="RayCast2D" parent="."]
+[node name="Attack" type="RayCast2D" parent="."]
+target_position = Vector2(37, 0)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_lhrxm")
@@ -340,12 +343,6 @@ script = ExtResource("4_fy3nr")
 
 [node name="NightBorneDies" type="Node" parent="StateMachine"]
 script = ExtResource("5_qgmoj")
-
-[node name="Above_and_Below" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
-position = Vector2(1, 6.5)
-shape = SubResource("RectangleShape2D_qnsno")
 
 [node name="NightBorneAttackVoice" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_lm274")

@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://b6e4dfmkqg3k7" path="res://Assets/coin_36.png" id="2_x2ofi"]
 [ext_resource type="PackedScene" uid="uid://dkroiytusp6gy" path="res://Player/player_container.tscn" id="3_opmhr"]
 [ext_resource type="Script" path="res://Camera.gd" id="4_mo4is"]
-[ext_resource type="AudioStream" uid="uid://lyvuo0brnqwo" path="res://Assets/Medieval Craze.wav" id="7_dgjo2"]
 [ext_resource type="Texture2D" uid="uid://40qr8x1b26d4" path="res://Assets/coin_10.png" id="7_o8ohu"]
+[ext_resource type="AudioStream" uid="uid://cmyu0vkhl56xd" path="res://Assets/Medieval Craze.mp3" id="7_vh6i0"]
 [ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="8_0mmfq"]
 [ext_resource type="Texture2D" uid="uid://d4g4pms1mfh37" path="res://Assets/coin_11.png" id="8_i1qsb"]
 [ext_resource type="Script" path="res://Coins.gd" id="10_b8ktj"]
@@ -1245,8 +1245,9 @@ script = ExtResource("4_mo4is")
 [node name="Door" parent="." instance=ExtResource("8_0mmfq")]
 
 [node name="MedievalCraze" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_dgjo2")
-volume_db = 20.429
+stream = ExtResource("7_vh6i0")
+volume_db = 10.0
+autoplay = true
 
 [node name="Coins" type="TileMap" parent="."]
 visible = false

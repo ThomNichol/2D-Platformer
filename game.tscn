@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d26iwbbqo3lye"]
+[gd_scene load_steps=28 format=3 uid="uid://d26iwbbqo3lye"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_1chfj"]
 [ext_resource type="Texture2D" uid="uid://cdgw7vgj2461y" path="res://Assets/tilesheet_complete.png" id="1_2f87u"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwpbbn2dirj6d" path="res://Levels/door.tscn" id="4_f8whs"]
 [ext_resource type="Texture2D" uid="uid://dba837esbyo6j" path="res://Assets/coin_01.png" id="5_cl5id"]
 [ext_resource type="Script" path="res://Levels/Coins.gd" id="6_byyb7"]
+[ext_resource type="AudioStream" uid="uid://cmyu0vkhl56xd" path="res://Assets/Medieval Craze.mp3" id="7_jmw3u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5q8nw"]
 texture = ExtResource("1_2f87u")
@@ -1204,5 +1205,9 @@ tile_set = SubResource("TileSet_0r707")
 format = 2
 layer_0/tile_data = PackedInt32Array(262144, 0, 0, 131080, 0, 0, 65549, 0, 0, 65541, 0, 0, 262162, 0, 0, 262166, 0, 0, 327705, 0, 0)
 script = ExtResource("6_byyb7")
+
+[node name="Medieval Craze" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jmw3u")
+autoplay = true
 
 [connection signal="body_entered" from="Player/Coin_Collector" to="Player" method="_on_coin_collector_body_entered"]
